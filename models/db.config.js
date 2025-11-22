@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+import mysql from 'mysql2';
 
 // Konfigurasi koneksi database
 const db = mysql.createConnection({
@@ -8,7 +8,7 @@ const db = mysql.createConnection({
   database: 'dbpraktikum8'
 });
 
-// Coba koneksi
+// Tes koneksi
 db.connect(err => {
   if (err) {
     console.error('Koneksi database gagal:', err);
@@ -17,4 +17,4 @@ db.connect(err => {
   }
 });
 
-module.exports = db;
+export default db;

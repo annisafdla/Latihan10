@@ -1,6 +1,5 @@
-const db = require('./db.config');
+import db from '../models/db.config.js';
 
-// Model User (berisi query dasar)
 const User = {
   getAll: callback => {
     db.query('SELECT * FROM users', callback);
@@ -23,4 +22,4 @@ const User = {
   }
 };
 
-module.exports = User;
+export default User;
