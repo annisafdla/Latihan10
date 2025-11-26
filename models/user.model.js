@@ -10,15 +10,32 @@ const User = {
   },
 
   create: (data, callback) => {
-    db.query('INSERT INTO users (name, email) VALUES (?, ?)', [data.name, data.email], callback);
+    db.query(
+      'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
+      [data.name, data.email, data.password],
+      callback
+    );
   },
 
   update: (id, data, callback) => {
-    db.query('UPDATE users SET name = ?, email = ? WHERE id = ?', [data.name, data.email, id], callback);
+    db.query(
+      'UPDATE users SET name = ?, email = ? WHERE id = ?',
+      [data.name, data.email, id],
+      callback
+    );
   },
 
   delete: (id, callback) => {
     db.query('DELETE FROM users WHERE id = ?', [id], callback);
+  },
+
+  // ✅ Fungsi baru: Get user by email (untuk login)
+  findByEmail: (email, callback) => {
+    db.query(
+      'SELECT * FROM users WHERE email = ?',
+      [email],
+      callback
+    );
   }
 };
 

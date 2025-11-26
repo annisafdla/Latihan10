@@ -1,5 +1,5 @@
 import express from 'express';
-import { authBearer } from '../middlewares/auth.middleware.js';
+import authBearer from '../middlewares/auth.middleware.js';
 import * as productController from '../controllers/products.controller.js';
 
 const router = express.Router();
